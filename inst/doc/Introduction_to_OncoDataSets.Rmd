@@ -1,0 +1,95 @@
+---
+title: "OncoDataSets: A Comprehensive Collection of Cancer Datasets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{OncoDataSets: A Comprehensive Collection of Cancer Datasets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 10,
+  fig.height = 6
+)
+```
+
+```{r setup}
+library(OncoDataSets)
+library(ggplot2)
+library(dplyr)
+
+```
+
+
+# Introduction
+
+The `OncoDataSets` package offers a comprehensive collection of datasets focused on cancer research, covering aspects like survival rates, genetic studies, biomarkers, and epidemiological insights. The datasets include data on various **cancer types such as melanoma, leukemia, breast, ovarian, and lung cancer**. This package is designed to support researchers, analysts, and bioinformaticians interested in understanding cancer epidemiology, treatment outcomes, and genetic factors.
+
+## Dataset Suffixes
+
+Each dataset in the `OncoDataSets` package comes with a suffix to identify the type of R object it represents:
+
+- `df`: A data frame
+- `tbl_df`: A tibble (modern version of a data frame)
+- `array`: An array
+- `list`: A list
+
+
+## Example Datasets
+
+Below are some example datasets included in the `OncoDataSets` package:
+
+- CA19PancreaticCancer_df: A data frame focused on the diagnosis of pancreatic cancer with the CA19-9 biomarker.
+
+- ColorectalMiRNAs_tbl_df: A tibble containing PubMed data of miRNAs in colorectal cancer.
+
+- CancerSmokeCity_array: An array with lung cancer data categorized by smoking status and city.
+
+- VALungCancer_list: A list containing VA lung cancer study data.
+
+
+## Data Visualization with OncoDataSets Data
+
+Here are examples of how to visualize data from the `OncoDataSets` package:
+
+### 1. Visualization of Pancreatic Cancer Diagnosis by Biomarker
+
+```{r ggplot_001}
+
+# Visualizing True Positives (TP) in Pancreatic Cancer Diagnosis
+CA19PancreaticCancer_df %>%
+  ggplot(aes(x = TP)) +
+  geom_histogram(bins = 30, alpha = 0.7, fill = "steelblue") +
+  labs(title = "Pancreatic Cancer Diagnosis - True Positives (TP)",
+       x = "True Positives (TP)",
+       y = "Frequency") +
+  theme_minimal()
+
+```
+
+### 2. Visualization of ColorectalMiRNAs_tbl_df
+
+```{r ggplot2_002}
+
+
+ggplot(ColorectalMiRNAs_tbl_df, aes(x = Year, fill = miRNA)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Distribution miRNA Types Over the Years",
+       x = "Year",
+       y = "Number of Publications") +
+  theme_minimal()
+
+```
+
+
+
+## Conclusion
+
+The `OncoDataSets` package provides essential datasets for cancer research, offering diverse data structures that are easily accessible for analysis. The dataset suffixes help users identify the format of the data quickly, making the analysis process more efficient.
+
+For more detailed information and examples on each dataset, please refer to the full package documentation.
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

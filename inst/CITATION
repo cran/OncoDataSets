@@ -1,0 +1,9 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "OncoDataSets: A Comprehensive Collection of Cancer Types and Cancer-related DataSets",
+  author   = "Renzo Caceres Rossi",
+  year     = 2024,
+  note     = "R package version 0.1.0",
+  url      = "https://github.com/lightbluetitan/oncodatasets"
+)
+
